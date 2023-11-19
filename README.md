@@ -1,6 +1,4 @@
-Tic Tac Toe Game
-
-# Custom Tic-Tac-Toe
+# Tic-Tac-Toe Game
 
 This is a simple implementation of the Tic-Tac-Toe game in Java using Swing for the graphical user interface.
 
