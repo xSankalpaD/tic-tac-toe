@@ -7,14 +7,14 @@ public class tic_tac_toe implements ActionListener {
 
     // Random object for determining the first turn
     private Random random = new Random();
-    
+
     // Main frame and UI components
     private JFrame frame = new JFrame();
     private JPanel titlePanel = new JPanel();
     private JPanel buttonPanel = new JPanel();
     private JLabel statusLabel = new JLabel();
     private JButton[] cells = new JButton[9];
-    
+
     // Flag to track the current player's turn
     private boolean isPlayer1Turn;
 
@@ -28,12 +28,12 @@ public class tic_tac_toe implements ActionListener {
     private void initializeGameUI() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
-        frame.getContentPane().setBackground(new Color(50, 50, 50));
+        frame.getContentPane().setBackground(new Color(240, 240, 240));
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
 
-        statusLabel.setBackground(new Color(25, 25, 25));
-        statusLabel.setForeground(new Color(25, 255, 0));
+        statusLabel.setBackground(new Color(150, 150, 150));
+        statusLabel.setForeground(new Color(25, 25, 25));
         statusLabel.setFont(new Font("Ink Free", Font.BOLD, 75));
         statusLabel.setHorizontalAlignment(JLabel.CENTER);
         statusLabel.setText("Tic-Tac-Toe");
@@ -94,10 +94,11 @@ public class tic_tac_toe implements ActionListener {
 
     // Check the board for a winner
     private void checkForWinner() {
-        // Check rows, columns, and diagonals for a winning combination using the checkWin method
+        // Check rows, columns, and diagonals for a winning combination using the
+        // checkWin method
         if (checkWin(0, 1, 2) || checkWin(3, 4, 5) || checkWin(6, 7, 8) ||
-            checkWin(0, 3, 6) || checkWin(1, 4, 7) || checkWin(2, 5, 8) ||
-            checkWin(0, 4, 8) || checkWin(2, 4, 6)) {
+                checkWin(0, 3, 6) || checkWin(1, 4, 7) || checkWin(2, 5, 8) ||
+                checkWin(0, 4, 8) || checkWin(2, 4, 6)) {
             // Determine the winning player and announce the winner
             String winningPlayerSymbol = isPlayer1Turn ? "O" : "X";
             announceWinner(winningPlayerSymbol);
@@ -130,7 +131,7 @@ public class tic_tac_toe implements ActionListener {
 
         // Get the winning combination of cells
         int[] winningCombination = findWinningCombination();
-        
+
         // Highlight the winning cells
         for (int index : winningCombination) {
             cells[index].setBackground(Color.GREEN);
@@ -145,14 +146,15 @@ public class tic_tac_toe implements ActionListener {
     // Find the winning combination of cells
     private int[] findWinningCombination() {
         int[][] winningCombinations = {
-            {0, 1, 2}, {3, 4, 5}, {6, 7, 8}, // Rows
-            {0, 3, 6}, {1, 4, 7}, {2, 5, 8}, // Columns
-            {0, 4, 8}, {2, 4, 6}             // Diagonals
+                { 0, 1, 2 }, { 3, 4, 5 }, { 6, 7, 8 }, // Rows
+                { 0, 3, 6 }, { 1, 4, 7 }, { 2, 5, 8 }, // Columns
+                { 0, 4, 8 }, { 2, 4, 6 } // Diagonals
         };
 
         for (int[] combination : winningCombinations) {
             String symbol = cells[combination[0]].getText();
-            if (!symbol.isEmpty() && symbol.equals(cells[combination[1]].getText()) && symbol.equals(cells[combination[2]].getText())) {
+            if (!symbol.isEmpty() && symbol.equals(cells[combination[1]].getText())
+                    && symbol.equals(cells[combination[2]].getText())) {
                 return combination;
             }
         }
