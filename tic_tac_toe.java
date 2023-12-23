@@ -28,13 +28,13 @@ public class tic_tac_toe implements ActionListener {
     private void initializeGameUI() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
-        frame.getContentPane().setBackground(new Color(240, 240, 240));
+        frame.getContentPane().setBackground(new Color(	240, 240, 240));
         frame.setLayout(new BorderLayout());
         frame.setVisible(true);
 
         statusLabel.setBackground(new Color(150, 150, 150));
         statusLabel.setForeground(new Color(25, 25, 25));
-        statusLabel.setFont(new Font("Ink Free", Font.BOLD, 75));
+        statusLabel.setFont(new Font("TimesRoman", Font.BOLD, 75));
         statusLabel.setHorizontalAlignment(JLabel.CENTER);
         statusLabel.setText("Tic-Tac-Toe");
         statusLabel.setOpaque(true);
@@ -48,7 +48,7 @@ public class tic_tac_toe implements ActionListener {
         for (int i = 0; i < 9; i++) {
             cells[i] = new JButton();
             buttonPanel.add(cells[i]);
-            cells[i].setFont(new Font("MV Boli", Font.BOLD, 120));
+            cells[i].setFont(new Font("Dialog", Font.BOLD, 120));
             cells[i].setFocusable(false);
             cells[i].addActionListener(this);
         }
